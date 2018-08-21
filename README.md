@@ -65,8 +65,19 @@ Below is a histogram of the quality of wine by color of wine.  There is more whi
 
 
 # Models
-
-
+The following packages need to be loaded for each model and graphs.
+library(ggplot2)                                                                                                                         
+library(ggthemes)                                                                                                                       
+library(GGally)                                                                                                                         
+library(tidyverse)                                                                                                                       
+library(magrittr)                                                                                                                       
+library(dplyr)                                                                                                                           
+library(hexbin)                                                                                                                         
+library(randomForest)                                                                                                                   
+library(caret)                                                                                                                           
+library(rpart)                                                                                                                           
+library(rpart.plot)                                                                                                                     
+library(ggcorrplot)                                                                                                                     
 
 #### Linear Regression
 
