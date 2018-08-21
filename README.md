@@ -43,6 +43,16 @@ summary(wine_adjusted_2)
 str(wine_adjusted_2)                                                                                                                     
 
 # EDA
+The data variables include fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, alcohol, quality, good, and color.
+
+I decided to explore the quality variable.  Below is a histogram of the quality. As shown in the graph, majority of the wine types were classified as "good quality" (6).
+
+**Histogram of Quality Variable**
+
+Below is a histogram of the quality of wine by color of wine.  There is more white wine considered "good quality" than red wine.  It also looks like there are more white wines in the dataset compared to red wine.
+
+**Histogram of Quality by Color**
+
 
 
 # Models
