@@ -1,7 +1,8 @@
 # Wine-Dataset
 I will use the wine dataset to determine the quality of the wine.  It contains characteristics about both white and red wines.  It contains 6,497 observations and 14 variables.  
-# Description
 
+# Description
+This projected stemmed from the curiosity in each variable and it's impact on the quality of the wine.  I don't know a lot about wine and didn't know that characteristics like pH, density, chlorides, etc. had such a big impact on the quality of wine.  I used a supervised learning technique in R to analyze this data.  The dataset came from the following site: https://www.kaggle.com/aleixdorca/wine-quality. 
 
 
 # Data Observations
