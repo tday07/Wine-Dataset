@@ -78,11 +78,27 @@ library(caret)
 library(rpart)                                                                                                                           
 library(rpart.plot)                                                                                                                     
 library(ggcorrplot)                                                                                                                     
+library(pscl)                                                                                                                           
+library(ROCR)                                                                                                                           
 
 #### Linear Regression
+I first split my data into a test and training set.  The quality variable also needs to be converted to a factor before running the model.  I then fit the model and the results showed that some of the variables like volatile acidity and residual sugar are statistically significant.
 
+wine_adjusted_2$quality <- as.factor(wine_adjusted_2$quality)                                                                           
+set.seed(123)                                                                                                                           
+ind = sample(2, nrow(wine_adjusted_2), replace = TRUE, prob=c(0.7,0.3))                                                                 
+trainwine = wine_adjusted_2[ind == 1,]                                                                                                   
+testwine = wine_adjusted_2[ind == 2,]                                                                                                   
+model <- glm(quality ~., family=binomial(link='logit'),data=trainwine)                                                                   
+summary(model)                                                                                                                           
 
+![Linear_Regression_Results](Linear_Regression_Results.PNG)
 
+I also ran an ANOVA test.  This showed that some more variables were statistically significant.  Some of those variables include alcohol, sulphates, and pH.
+
+anova(model, test="Chisq")                                                                                                               
+
+![Anova_Results](Anova_Results.PNG)
 
 #### Random Forest Model
 
