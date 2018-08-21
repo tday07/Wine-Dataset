@@ -4,9 +4,12 @@ I will use the wine dataset to determine the quality of the wine.  It contains c
 # Description
 This projected stemmed from the curiosity in each variable and it's impact on the quality of the wine.  I don't know a lot about wine and didn't know that characteristics like pH, density, chlorides, etc. had such a big impact on the quality of wine.  I used a supervised learning technique in R to analyze this data.  The dataset came from the following site: https://www.kaggle.com/aleixdorca/wine-quality. 
 
-
 # Data Observations
+Questions on original review of the dataset include:
 
+* Will Alcohol percentage and citric acid be the most important variables when it comes to determining the quality of the wine?
+* What variables are the highest correlated variables to quality?
+* Will chlorides be the least important variable in the dataset?
 
 # Data Cleaning
 The dataset didn't require a lot of cleaning. The quality variable was either converted to a numeric value or a factor depending on the need.  For example, to run the model I converted quality to a factor.  The numeric version of quality was used for graphing purposes.
