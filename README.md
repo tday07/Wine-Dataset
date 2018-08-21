@@ -53,6 +53,15 @@ Below is a histogram of the quality of wine by color of wine.  There is more whi
 
 **Histogram of Quality by Color**
 
+**Alchohol by Color**
+
+**Fixed Acidity chart**
+
+**Volatile Acidity Chart**
+
+**Citric Acid Chart**
+
+**pH by color**
 
 
 # Models
