@@ -25,6 +25,19 @@ r.w.wine$quality[r.w.wine$quality == "7"] <- 1
 r.w.wine$quality[r.w.wine$quality == "8"] <- 1                                                                                           
 r.w.wine$quality[r.w.wine$quality == "9"] <- 1                                                                                           
 
+I chose to scale the data using the scale() package.  I converted the scaled data into a data frame and then added back in the quality, good, and color variables since these did not need to be scaled.
+
+wine = subset(r.w.wine, select = -c(13,14) )                                                                                             
+wine_scaled <- scale(wine)                                                                                                               
+wine_scaled_df <- as.data.frame(wine_scaled)                                                                                             
+wine_adjusted = subset(wine_scaled_df, select = -c(12))                                                                                 
+wine_adjusted_2 <- cbind(wine_adjusted, quality = r.w.wine$quality, good = r.w.wine$good, color = r.w.wine$color)                       
+
+I reviewed the adjusted dataset using the packages below.
+
+summary(wine_adjusted_2)                                                                                                                 
+str(wine_adjusted_2)                                                                                                                     
+
 # EDA
 
 
