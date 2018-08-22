@@ -47,22 +47,23 @@ The data variables include fixed acidity, volatile acidity, citric acid, residua
 
 I decided to explore the quality variable.  Below is a histogram of the quality. As shown in the graph, majority of the wine types were classified as "good quality" (6).
 
-**Histogram of Quality Variable**
+![Histogram_Wine_Quality](Histogram_Wine_Quality.PNG)
 
 Below is a histogram of the quality of wine by color of wine.  There is more white wine considered "good quality" than red wine.  It also looks like there are more white wines in the dataset compared to red wine.
 
-**Histogram of Quality by Color**
+![Quality_Wine_By_Color](Quality_Wine_By_Color.PNG)
 
-**Alchohol by Color**
+![Alcohol_By_Color](Alcohol_By_Color.PNG)
 
-**Fixed Acidity chart**
+![Fixed_Acidity_by_Wine_Type](Fixed_Acidity_by_Wine_Type.PNG)
 
-**Volatile Acidity Chart**
+![Volatile_Acidity_by_Wine_Type](Volatile_Acidity_by_Wine_Type.PNG)
 
-**Citric Acid Chart**
+![Citric_Acid_by_Wine_Type](Citric_Acid_by_Wine_Type.PNG)
 
-**pH by color**
+![pH_by_Color](pH_by_Color.PNG)
 
+![Correlogram_of_Wine_Data](Correlogram_of_Wine_Data.PNG)
 
 # Models
 The following packages need to be loaded for each model and graphs.
