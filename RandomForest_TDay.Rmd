@@ -1,0 +1,20 @@
+---
+title: "RandomForest_TDay"
+author: "Taylor Day"
+date: "August 6, 2018"
+output: html_document
+---
+
+```{r}
+wine_adjusted_2$quality <- as.factor(wine_adjusted_2$quality)
+set.seed(123)
+indrf = sample(2, nrow(wine_adjusted_2), replace = TRUE, prob=c(0.7,0.3))
+trainrf = wine_adjusted_2[indrf == 1,]
+testrf = wine_adjusted_2[indrf == 2,]
+loan.rf = randomForest(quality ~ ., data=trainrf, importance = T)
+loan.rf
+loan.prediction = predict(loan.rf, testrf)
+confusionMatrix(table(loan.prediction, testrf$quality))
+varImpPlot(loan.rf)
+```
+
