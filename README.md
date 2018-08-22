@@ -47,23 +47,23 @@ The data variables include fixed acidity, volatile acidity, citric acid, residua
 
 I decided to explore the quality variable.  Below is a histogram of the quality. As shown in the graph, majority of the wine types were classified as "good quality" (6).
 
-![Histogram_Wine_Quality](Images/Histogram_Wine_Quality.PNG)
+![Histogram_Wine_Quality](Images/Histogram_Wine_Quality.png)
 
 Below is a histogram of the quality of wine by color of wine.  There is more white wine considered "good quality" than red wine.  It also looks like there are more white wines in the dataset compared to red wine.
 
-![Quality_Wine_By_Color](Images/Quality_Wine_By_Color.PNG)
+![Quality_Wine_By_Color](Images/Quality_Wine_By_Color.png)
 
 ![Alcohol_by_Color](Images/Alcohol_by_Color.png)
 
-![Fixed_Acidity_by_Wine_Type](Images/Fixed_Acidity_by_Wine_Type.PNG)
+![Fixed_Acidity_by_Wine_Type](Images/Fixed_Acidity_by_Wine_Type.png)
 
-![Volatile_Acidity_by_Wine_Type](Images/Volatile_Acidity_by_Wine_Type.PNG)
+![Volatile_Acidity_by_Wine_Type](Images/Volatile_Acidity_by_Wine_Type.png)
 
-![Citric_Acid_by_Wine_Type](Images/Citric_Acid_by_Wine_Type.PNG)
+![Citric_Acid_by_Wine_Type](Images/Citric_Acid_by_Wine_Type.png)
 
-![pH_by_Color](Images/pH_by_Color.PNG)
+![pH_by_Color](Images/pH_by_Color.png)
 
-![Correlogram_of_Wine_Data](Images/Correlogram_of_Wine_Data.PNG)
+![Correlogram_of_Wine_Data](Images/Correlogram_of_Wine_Data.png)
 
 # Models
 The following packages need to be loaded for each model and graphs.
@@ -118,7 +118,7 @@ confusionMatrix(table(loan.prediction, testrf$quality))
 
 The importance variables are shown below.
 
-![varimpplot](Images/varimpplot.PNG)
+![varimpplot](Images/varimpplot.png)
 
 #### Decision Tree Model
 set.seed(123)                                                                                                                           
@@ -133,7 +133,7 @@ table(testdt$quality, predictions)
 confusionMatrix(table(predictions, testdt$quality))                                                                                     
 
 ![confusion_matrix_dt](Images/confusion_matrix_dt.PNG)
-![decision_tree_plot](Images/decision_tree_plot.PNG)
+![decision_tree_plot](Images/decision_tree_plot.png)
 
 prune.tree = prune(loan.rp, cp = loan.cp)                                                                                               
 rpart.plot(prune.tree,tweak=1.3)                                                                                                         
