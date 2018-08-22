@@ -47,23 +47,23 @@ The data variables include fixed acidity, volatile acidity, citric acid, residua
 
 I decided to explore the quality variable.  Below is a histogram of the quality. As shown in the graph, majority of the wine types were classified as "good quality" (6).
 
-![Histogram_Wine_Quality](Histogram_Wine_Quality.PNG)
+![Histogram_Wine_Quality](Images/Histogram_Wine_Quality.PNG)
 
 Below is a histogram of the quality of wine by color of wine.  There is more white wine considered "good quality" than red wine.  It also looks like there are more white wines in the dataset compared to red wine.
 
-![Quality_Wine_By_Color](Quality_Wine_By_Color.PNG)
+![Quality_Wine_By_Color](Images/Quality_Wine_By_Color.PNG)
 
 ![Alcohol_by_Color](Images/Alcohol_by_Color.png)
 
-![Fixed_Acidity_by_Wine_Type](Fixed_Acidity_by_Wine_Type.PNG)
+![Fixed_Acidity_by_Wine_Type](Images/Fixed_Acidity_by_Wine_Type.PNG)
 
-![Volatile_Acidity_by_Wine_Type](Volatile_Acidity_by_Wine_Type.PNG)
+![Volatile_Acidity_by_Wine_Type](Images/Volatile_Acidity_by_Wine_Type.PNG)
 
-![Citric_Acid_by_Wine_Type](Citric_Acid_by_Wine_Type.PNG)
+![Citric_Acid_by_Wine_Type](Images/Citric_Acid_by_Wine_Type.PNG)
 
-![pH_by_Color](pH_by_Color.PNG)
+![pH_by_Color](Images/pH_by_Color.PNG)
 
-![Correlogram_of_Wine_Data](Correlogram_of_Wine_Data.PNG)
+![Correlogram_of_Wine_Data](Images/Correlogram_of_Wine_Data.PNG)
 
 # Models
 The following packages need to be loaded for each model and graphs.
@@ -93,13 +93,13 @@ testwine = wine_adjusted_2[ind == 2,]
 model <- glm(quality ~., family=binomial(link='logit'),data=trainwine)                                                                   
 summary(model)                                                                                                                           
 
-![Linear_Regression_Results](Linear_Regression_Results.PNG)
+![Linear_Regression_Results](Images/Linear_Regression_Results.PNG)
 
 I also ran an ANOVA test.  This showed that some more variables were statistically significant.  Some of those variables include alcohol, sulphates, and pH.
 
 anova(model, test="Chisq")                                                                                                               
 
-![Anova_Results](Anova_Results.PNG)
+![Anova_Results](Images/Anova_Results.PNG)
 
 #### Random Forest Model
 set.seed(123)                                                                                                                           
@@ -109,16 +109,16 @@ testrf = wine_adjusted_2[indrf == 2,]
 loan.rf = randomForest(quality ~ ., data=trainrf, importance = T)                                                                       
 loan.rf                                                                                                                                 
 
-![loan.rf](loan.rf.PNG)
+![loan.rf](Images/loan.rf.PNG)
 
 loan.prediction = predict(loan.rf, testrf)                                                                                               
 confusionMatrix(table(loan.prediction, testrf$quality))                                                                                 
 
-![confusion_matrix](confusion_matrix.PNG)
+![confusion_matrix](Images/confusion_matrix.PNG)
 
 The importance variables are shown below.
 
-![varimpplot](varimpplot.PNG)
+![varimpplot](Images/varimpplot.PNG)
 
 #### Decision Tree Model
 set.seed(123)                                                                                                                           
@@ -132,8 +132,8 @@ predictions = predict(loan.rp, testdt, type= "class")
 table(testdt$quality, predictions)                                                                                                       
 confusionMatrix(table(predictions, testdt$quality))                                                                                     
 
-![confusion_matrix_dt](confusion_matrix_dt.PNG)
-![decision_tree_plot](decision_tree_plot.PNG)
+![confusion_matrix_dt](Images/confusion_matrix_dt.PNG)
+![decision_tree_plot](Images/decision_tree_plot.PNG)
 
 prune.tree = prune(loan.rp, cp = loan.cp)                                                                                               
 rpart.plot(prune.tree,tweak=1.3)                                                                                                         
@@ -143,7 +143,7 @@ confusionMatrix(table(predictions.pt, testdt$quality))
 
 I pruned the decision tree but it didn't make much of a difference as shown by the confusion matrix below.
 
-![pruned_tree_confusion_matrix](pruned_tree_confusion_matrix.PNG)
+![pruned_tree_confusion_matrix](Images/pruned_tree_confusion_matrix.PNG)
 
 # Analysis
 
