@@ -1,0 +1,70 @@
+---
+title: "Wine_Data_Cleaning"
+author: "Taylor Day"
+date: "July 22, 2018"
+output: html_document
+---
+
+```{r}
+# Load wine dataset
+r.w.wine <- read.csv(file="C:/Users/tday/Documents/Summer Semester 2018/Data Practicum II/winequality-redwhite.csv", header = T)
+View(r.w.wine)
+
+# Install necessary packages for models and graphs
+library(ggplot2)
+library(ggthemes)
+library(GGally)
+library(tidyverse)
+library(magrittr)
+library(dplyr)
+library(hexbin)
+library(randomForest)
+library(caret)
+library(rpart)
+library(rpart.plot)
+library(ggcorrplot)
+
+# Data Cleaning
+r.w.wine$quality <- as.numeric(r.w.wine$quality)
+r.w.wine$good <- as.factor(r.w.wine$good)
+any(is.na(r.w.wine))
+
+# Editing Quality COlumn
+r.w.wine$quality[r.w.wine$quality == "1"] <- 0
+r.w.wine$quality[r.w.wine$quality == "2"] <- 0
+r.w.wine$quality[r.w.wine$quality == "3"] <- 0
+r.w.wine$quality[r.w.wine$quality == "4"] <- 0
+r.w.wine$quality[r.w.wine$quality == "5"] <- 1
+r.w.wine$quality[r.w.wine$quality == "6"] <- 1
+r.w.wine$quality[r.w.wine$quality == "7"] <- 1
+r.w.wine$quality[r.w.wine$quality == "8"] <- 1
+r.w.wine$quality[r.w.wine$quality == "9"] <- 1
+
+# Scaling the Data
+wine = subset(r.w.wine, select = -c(13,14) )
+wine_scaled <- scale(wine)
+head(wine)
+wine_scaled_df <- as.data.frame(wine_scaled)
+
+# Finding highly correlated values
+corr_norm <- round(cor(wine_scaled),1)
+corr_norm
+
+# Plot the correlated values
+ggcorrplot(corr_norm, hc.order = TRUE, 
+           type = "lower", 
+           lab = TRUE, 
+           lab_size = 3, 
+           method="circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title="Correlogram of Wine Data", 
+           ggtheme=theme_dark)
+
+# Adjusted Dataset with scaled data
+wine_adjusted = subset(wine_scaled_df, select = -c(12))
+wine_adjusted_2 <- cbind(wine_adjusted, quality = r.w.wine$quality, good = r.w.wine$good, color = r.w.wine$color)
+
+# Review the adjusted dataset
+summary(wine_adjusted_2)
+str(wine_adjusted_2)
+```
