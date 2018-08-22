@@ -140,6 +140,10 @@ predictions.pt = predict(prune.tree, testdt, type="class")
 table(testdt$quality, predictions.pt)                                                                                                   
 confusionMatrix(table(predictions.pt, testdt$quality))                                                                                   
 
+I pruned the decision tree but it didn't make much of a difference as shown by the confusion matrix below.
+
+![pruned_tree_confusion_matrix](pruned_tree_confusion_matrix.PNG)
+
 # Analysis
 
 
