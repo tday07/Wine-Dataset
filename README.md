@@ -115,9 +115,30 @@ confusionMatrix(table(loan.prediction, testrf$quality))
 
 ![confusion_matrix](confusion_matrix.PNG)
 
+The importance variables are shown below.
+
+![varimpplot](varimpplot.PNG)
+
 #### Decision Tree Model
+set.seed(123)                                                                                                                           
+inddt = sample(2, nrow(wine_adjusted_2), replace = TRUE, prob=c(0.6,0.4))                                                               
+traindt = wine_adjusted_2[inddt == 1,]                                                                                                   
+testdt = wine_adjusted_2[inddt == 2,]                                                                                                   
 
+The confusion matrix for the decision tree model is shown below.
 
+predictions = predict(loan.rp, testdt, type= "class")                                                                                   
+table(testdt$quality, predictions)                                                                                                       
+confusionMatrix(table(predictions, testdt$quality))                                                                                     
+
+![confusion_matrix_dt](confusion_matrix_dt.PNG)
+![decision_tree_plot](decision_tree_plot.PNG)
+
+prune.tree = prune(loan.rp, cp = loan.cp)                                                                                               
+rpart.plot(prune.tree,tweak=1.3)                                                                                                         
+predictions.pt = predict(prune.tree, testdt, type="class")                                                                               
+table(testdt$quality, predictions.pt)                                                                                                   
+confusionMatrix(table(predictions.pt, testdt$quality))                                                                                   
 
 # Analysis
 
