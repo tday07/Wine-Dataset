@@ -1,0 +1,98 @@
+---
+title: "Wine_EDA"
+author: "Taylor Day"
+date: "July 16, 2018"
+output: html_document
+---
+
+```{r}
+# Explore the wine dataset
+summary(r.w.wine)
+str(r.w.wine)
+dim(r.w.wine)
+
+
+# Histogram of Wine Quality
+r.w.wine$quality <-as.numeric(r.w.wine$quality)
+hist(r.w.wine$quality, xlab="Quality", ylab="Frequency", main="Histogram of Wine Quality")
+
+# Plot Showing fixed.acidity and Volatile.acidity
+for(i in 1:2){
+     print(paste("plot showing", colnames(r.w.wine)[i]))
+     
+     print(ggplot(r.w.wine, aes_string("quality", colnames(r.w.wine)[i]))+
+               geom_count(col="black", show.legend=F))
+     
+     
+     print(ggplot(r.w.wine, aes_string("quality", colnames(r.w.wine)[i]))+
+               geom_jitter(aes(col=as.factor(color))))
+ }
+
+# Outlier Detection 
+plot(r.w.wine$color, r.w.wine$density, xlab="Color", ylab="Density", main="Density by Wine Color")
+plot(r.w.wine$quality, r.w.wine$density, xlab="Quality", ylab="Denisty", main="Denisty by Quality of Wine")
+ggplot(r.w.wine,aes(quality,fill=color)) + geom_histogram(binwidth=0.5,col="black") +labs(title="Histogram - Quality of Wine")
+
+#Plotting Count by Wine Color
+ds <- r.w.wine
+View(ds)
+wine_type <- ds$color
+summary(wine_type)
+quickplot(ds$color, fill = 'color', xlab="Color", ylab="Count", main="Wine Count by Color")
+
+# Update column titles in dataset
+names(ds)
+names(ds) <- c("fixed.acidity","volatile.acidity", "citric.acid","residual.sugar","chlorides","free.sulfur.dioxide","total.sulfur.dioxide","density","pH","sulphates","alcohol","quality","good","color")
+names(ds)
+
+# Plot Fixed Acidity by Wine Type
+summary(ds$fixed.acidity)
+g<-ggplot(ds, aes(x=wine_type, y=fixed.acidity))
+print(g+geom_boxplot(fill="#0D7FB8") + ggtitle("Fixed Acidity by Wine Type"))
+rm(g)
+
+# Plot Volatile Acidity by Wine Type
+summary(ds$volatile.acidity)
+g<-ggplot(ds, aes(x=wine_type, y=volatile.acidity, color = factor(wine_type)))
+print(g+geom_boxplot() + ggtitle("Volatile Acidity by Wine Type"))
+rm(g)
+
+# Plot Citric Acid by Wine Type
+summary(ds$citric.acid)
+g <- ggplot(ds, aes(x=wine_type, y=citric.acid, color=factor(wine_type)))
+print(g+geom_boxplot(fill="#FF3333") + ggtitle("Citric Acid by Wine Type"))
+rm(g)
+
+# Plot Residual Sugar by Wine Type
+summary(ds$residual.sugar)
+qplot(x = wine_type,y =residual.sugar, main="Residual Sugar by Wine Type", data = ds, geom = "boxplot")
+
+# Plot Free Sulfur Dioxide
+summary(ds$free.sulfur.dioxide)
+wine <- ggplot(ds,aes(free.sulfur.dioxide))
+rm(wine)
+
+# Plot Total Sulfur Dioxide
+summary(ds$total.sulfur.dioxide)
+wine <- ggplot(ds, aes(total.sulfur.dioxide))
+wine+geom_dotplot(aes(fill = color), method = "histodot", binwidth = 4)+coord_flip()
+rm(wine)
+
+# Plot Density
+summary(ds$density)
+qplot(color, density, main="Density by Color", data = ds)
+
+# Plot pH
+summary(ds$pH)
+quickplot(color, pH, main="pH by Color", data = ds)
+
+# Plot Sulphates
+summary(ds$sulphates)
+quickplot(color, sulphates, main="Sulphates by Color", data = ds)
+
+# Plot Alcohol by Color
+summary(ds$alcohol)
+qplot(color, alcohol, main="Alcohol by Color", data = ds, geom = "boxplot", fill = (color))
+
+```
+
