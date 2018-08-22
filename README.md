@@ -53,7 +53,7 @@ Below is a histogram of the quality of wine by color of wine.  There is more whi
 
 ![Quality_Wine_By_Color](Quality_Wine_By_Color.PNG)
 
-![Alcohol_By_Color](Alcohol_By_Color.png)
+![Alcohol_by_Color](Alcohol_by_Color.png)
 
 ![Fixed_Acidity_by_Wine_Type](Fixed_Acidity_by_Wine_Type.PNG)
 
