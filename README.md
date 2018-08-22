@@ -53,15 +53,27 @@ Below is a histogram of the quality of wine by color of wine.  There is more whi
 
 ![Quality_Wine_By_Color](Images/Quality_Wine_By_Color.png)
 
+It is clear to see that there are more white wines in the dataset than red wine.
+
 ![Alcohol_by_Color](Images/Alcohol_by_Color.png)
+
+Most of the acids in wine are either fixed or nonvolatile which means they do not evaporate easily.  The graph below shows the fixed acidity by color.  This boxplot shows that the levels of fixed acidity are higher in white wine compared to red.
 
 ![Fixed_Acidity_by_Wine_Type](Images/Fixed_Acidity_by_Wine_Type.png)
 
+The volatile acidity refers to the amount of acetic acid in the wine.  High levels will cause the wine to have a vinegar taste.  The boxplot below shows that red wine contains a higher amount of acetic acid.
+
 ![Volatile_Acidity_by_Wine_Type](Images/Volatile_Acidity_by_Wine_Type.png)
+
+Citric acid can add freshness to the wine.  White wine generally contains more than 0.5 citric acid while red wine will contain between 0 to 0.5.  This can be seen in the boxplot below.
 
 ![Citric_Acid_by_Wine_Type](Images/Citric_Acid_by_Wine_Type.png)
 
+The pH level can be used to tell how acidic or basic the wine is. Most wines fall between 3-4.  That can be seen with the graph below.  Most of the wines are between this threshold.
+
 ![pH_by_Color](Images/pH_by_Color.png)
+
+The correlation plot below shows that free sulfur dioxide and total sulfur dioxide are positively correlated.  While density and alcohol are negatively correlated.  This makes sense because the density level is indicative of the percentage of alcohol in the wine.
 
 ![Correlogram_of_Wine_Data](Images/Correlogram_of_Wine_Data.png)
 
