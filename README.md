@@ -158,10 +158,17 @@ I pruned the decision tree but it didn't make much of a difference as shown by t
 ![pruned_tree_confusion_matrix](Images/pruned_tree_confusion_matrix.PNG)
 
 # Analysis
-
+* Each model performed with around the same accuracy.
+    * The Random Forest model performed the best with 96.3% accuracy.
+    * The Decision Tree model had a 96.04% accuracy
+    * The Linear Regression model had a 96.1% accuracy.
+* Free Sulfur Dioxide was the most important variable in the Random Forest model for determining quality.  This makes sense since high levels can cause oxidation in the wine which may take the "fruity" flavor way from the wine.
+* Percentage of alcohol was one of the least important variables in determining quality in the Random Forest model.
+* Not as many variables had a high correlation.  A lot of the variables had average accuracy.
 
 # Conclusion
 
 
 
 # References
+Kaggle dataset: https://www.kaggle.com/aleixdorca/wine-quality
