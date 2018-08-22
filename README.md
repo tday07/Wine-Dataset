@@ -101,9 +101,19 @@ anova(model, test="Chisq")
 ![Anova_Results](Anova_Results.PNG)
 
 #### Random Forest Model
+set.seed(123)                                                                                                                           
+indrf = sample(2, nrow(wine_adjusted_2), replace = TRUE, prob=c(0.7,0.3))                                                               
+trainrf = wine_adjusted_2[indrf == 1,]                                                                                                   
+testrf = wine_adjusted_2[indrf == 2,]                                                                                                   
+loan.rf = randomForest(quality ~ ., data=trainrf, importance = T)                                                                       
+loan.rf                                                                                                                                 
 
+![loan.rf](loan.rf.PNG)
 
+loan.prediction = predict(loan.rf, testrf)                                                                                               
+confusionMatrix(table(loan.prediction, testrf$quality))                                                                                 
 
+![confusion_matrix](confusion_matrix.PNG)
 
 #### Decision Tree Model
 
