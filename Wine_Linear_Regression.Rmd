@@ -1,0 +1,34 @@
+---
+title: "Wine_Linear_Regression"
+author: "Taylor Day"
+date: "July 30, 2018"
+output: html_document
+---
+
+```{r}
+# Linear Regression Model
+wine_adjusted_2$quality <- as.factor(wine_adjusted_2$quality)
+set.seed(123)
+ind = sample(2, nrow(wine_adjusted_2), replace = TRUE, prob=c(0.7,0.3))
+trainwine = wine_adjusted_2[ind == 1,]
+testwine = wine_adjusted_2[ind == 2,]
+model <- glm(quality ~., family=binomial(link='logit'),data=trainwine)
+summary(model)
+anova(model, test="Chisq")
+install.packages("pscl")
+library(pscl)
+pR2(model)
+fitted.results <- predict(model,newdata=subset(testwine),type='response')
+fitted.results <- ifelse(fitted.results > 0.5,1,0)
+misClasificError <- mean(fitted.results != testwine$quality)
+print(paste('Accuracy',1-misClasificError))
+library(ROCR)
+p <- predict(model, newdata=subset(testwine), type="response")
+pr <- prediction(p, testwine$quality)
+prf <- performance(pr, measure = "tpr", x.measure = "fpr")
+plot(prf)
+auc <- performance(pr, measure = "auc")
+auc <- auc@y.values[[1]]
+auc
+```
+
