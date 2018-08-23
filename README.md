@@ -172,3 +172,4 @@ I pruned the decision tree but it didn't make much of a difference as shown by t
 
 # References
 Kaggle dataset: https://www.kaggle.com/aleixdorca/wine-quality
+Presentation: https://youtu.be/V-BsyQLdJ3M
