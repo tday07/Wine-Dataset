@@ -171,5 +171,5 @@ I pruned the decision tree but it didn't make much of a difference as shown by t
 * Variables that I thought we be highly correlated or important to the models (like alcohol or citric acid) were some of the least important variables.  Sulphates, acidity, and free sulfur dioxide rather were more important to the models.
 
 # References
-Kaggle dataset: https://www.kaggle.com/aleixdorca/wine-quality
+Kaggle dataset: https://www.kaggle.com/aleixdorca/wine-quality                                                                           
 Presentation: https://youtu.be/V-BsyQLdJ3M
