@@ -167,8 +167,8 @@ I pruned the decision tree but it didn't make much of a difference as shown by t
 * Not as many variables had a high correlation.  A lot of the variables had average accuracy.
 
 # Conclusion
-
-
+* Free Sulfur Dioxide and Sulphates were the most important variables in determining quality of the wine.  I was surpised to see that percentage of alcohol as one of the least important variables.
+* Variables that I thought we be highly correlated or important to the models (like alcohol or citric acid) were some of the least important variables.  Sulphates, acidity, and free sulfur dioxide rather were more important to the models.
 
 # References
 Kaggle dataset: https://www.kaggle.com/aleixdorca/wine-quality
