@@ -57,7 +57,7 @@ It is clear to see that there are more white wines in the dataset than red wine.
 
 ![Alcohol_by_Color](Images/Alcohol_by_Color.png)
 
-Most of the acids in wine are either fixed or nonvolatile which means they do not evaporate easily.  The graph below shows the fixed acidity by color.  This boxplot shows that the levels of fixed acidity are higher in white wine compared to red.
+Most of the acids in wine are either fixed or nonvolatile which means they do not evaporate easily.  The graph below shows the fixed acidity by color.  This boxplot shows that the levels of fixed acidity are higher in red wine compared to white.
 
 ![Fixed_Acidity_by_Wine_Type](Images/Fixed_Acidity_by_Wine_Type.png)
 
